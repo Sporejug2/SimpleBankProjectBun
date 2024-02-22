@@ -1,0 +1,13 @@
+C:\Users\etominac\Software\goLang\simpleBankProject\db\migration>migrate create -ext sql -seq init_schema
+C:\Users\etominac\Software\goLang\simpleBankProject\db\migration\000001_init_schema.up.sql
+C:\Users\etominac\Software\goLang\simpleBankProject\db\migration\000001_init_schema.down.sql
+
+psql -h localhost -U postgres -w -c "create database example;"
+
+export POSTGRESQL_URL='postgres://postgres:ncell@localhost:5430/example?sslmode=disable'
+
+migrate -database "postgresql://postgres:ncell@localhost:5430/example?sslmode=disable" up
+
+migrate -database "postgresql://postgres:ncell@localhost:5430/example?sslmode=disable" -verbose down
+
+$ migrate -database "postgresql://postgres:ncell@localhost:5430/public?sslmode=disable" -verbose down
